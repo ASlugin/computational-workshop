@@ -10,12 +10,12 @@ def iteration_methods(matrix_a, vector_b, epsilon):
     print()
     '''
 
-    print('МЕТОД ПРОСТОЙ ИТЕРАЦИИ.')
+    print('МЕТОД ПРОСТОЙ ИТЕРАЦИИ')
     x, k = method_of_simple_iterations(matrix_h, vector_g, epsilon)
     print('x = ', x)
     print(f'Количество итераций: {k}')
 
-    print('МЕТОД ЗЕЙДЕЛЯ.')
+    print('МЕТОД ЗЕЙДЕЛЯ')
     x_s, k_s = seidel_method(matrix_h, vector_g, epsilon)
     print('x = ', x_s)
     print(f'Количество итераций: {k_s}')
