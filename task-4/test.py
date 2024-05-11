@@ -7,7 +7,7 @@ from main import get_equivalent_system, method_of_simple_iterations, seidel_meth
 def get_random_diagonal_dominated_matrix(n):
     a = np.zeros((n, n))
     max_value_cell = 20
-    amount_filled_cells = randint(n * n // 100, n * n)
+    amount_filled_cells = n * n // 100
     for g in range(amount_filled_cells // 2):
         i = randint(0, n - 1)
         j = randint(0, i)

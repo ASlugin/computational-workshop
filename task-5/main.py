@@ -78,7 +78,7 @@ def scalar_product_method(matrix, x_k, y_k, epsilon):
     return eigenvalue, x_k_next, k
 
 
-def print_for_different_epsilon(matrix, x_0, y_0, epsilon):
+def print_for_different_epsilon(matrix, x_0, y_0):
     table = PrettyTable(['epsilon',
                          'Кол-во итераций в степенном методе',
                          'Кол-во итераций в методе скалярных произведений'])
@@ -100,4 +100,4 @@ if __name__ == '__main__':
     eps = 1e-6
 
     run(a, x_o, y_o, eps)
-    print_for_different_epsilon(a, x_o, y_o, eps)
+    print_for_different_epsilon(a, x_o, y_o)
