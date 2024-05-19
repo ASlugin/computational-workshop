@@ -102,11 +102,11 @@ def get_eigenvalue_with_max_element(matrix, epsilon):
 
 def get_max_non_diagonal_element(matrix):
     n = matrix[0].size
-    max_element, i_max, j_max = matrix[0][1], 0, 1
+    max_element, i_max, j_max = abs(matrix[0][1]), 0, 1
     for i in range(n):
         for j in range(n):
-            if i != j and matrix[i][j] > max_element:
-                max_element = matrix[i][j]
+            if i != j and abs(matrix[i][j]) > max_element:
+                max_element = abs(matrix[i][j])
                 i_max, j_max = i, j
     return i_max, j_max
 
@@ -174,5 +174,5 @@ def check_values_in_circles(values, circles):
 
 if __name__ == '__main__':
     eps = 1e-7
-    d = 3
+    d = 5
     run(eps, d)
