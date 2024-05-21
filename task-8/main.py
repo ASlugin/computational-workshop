@@ -134,10 +134,10 @@ def collocation_method():
 
 
 def collocation(n):
-    t_values = np.linspace(a, b, n + 1)
-    # t_values = []
-    # for i in range(n):
-    #     t_values.append( math.cos( ((2 * (i + 1) - 1) / 2 * n) * math.pi) )
+    # t_values = np.linspace(a, b, n + 1)
+    t_values = []
+    for i in range(n):
+        t_values.append( math.cos( ((2 * (i + 1) - 1) / 2 * n) * math.pi) )
     L = lambda y: lambda x: - p(x) * df(y, 2)(x) + q(x) * df(y)(x) + r(x) * y(x)
     L = np.vectorize(L)
 

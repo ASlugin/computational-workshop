@@ -15,7 +15,7 @@ import numpy as np
 x = sym.symbols("x")
 t = sym.symbols("t")
 
-u_ = x * t ** 3 - 2 * x + 25 - x ** 5
+u_ = x ** 2 + t ** 2
 u = sym.lambdify([x, t], u_, 'numpy')
 
 
@@ -35,7 +35,7 @@ def run():
 
     k = 1e-2  # коэффициент при u_xx(x, t)
     a = 10  # правая граница по x
-    T = 20  # правая граница по t
+    T = 10  # правая граница по t
     N = 30  # кол-во делений по x
     K = 30  # кол-во делений по t
     f = sym.lambdify([x, t],
@@ -48,9 +48,10 @@ def run():
 
         explicit_u = explicit_schema(u, f, k, a, T, N, K)
         implicit_u = implicit_schema(u, f, k, a, T, N, K)
+        explicit_u = np.flip(explicit_u, 0)
+        implicit_u = np.flip(implicit_u, 0)
 
         fig, (ax1, ax2) = plt.subplots(ncols=2)
-
         im1 = ax1.imshow(explicit_u, cmap='jet', extent=[0, a, 0, T])
         ax1.set_title("Явная схема", fontsize=15)
         ax1.set_xlabel("Координата x", fontsize=10)
@@ -61,6 +62,7 @@ def run():
         ax2.set_title("Неявная схема", fontsize=15)
         ax2.set_xlabel("Координата x", fontsize=10)
         ax2.set_ylabel("Время t", fontsize=10)
+        # ax2.invert_yaxis()
         fig.colorbar(im2, ax=ax2)
 
         plt.tight_layout()
