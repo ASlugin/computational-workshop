@@ -62,7 +62,6 @@ def run():
         ax2.set_title("Неявная схема", fontsize=15)
         ax2.set_xlabel("Координата x", fontsize=10)
         ax2.set_ylabel("Время t", fontsize=10)
-        # ax2.invert_yaxis()
         fig.colorbar(im2, ax=ax2)
 
         plt.tight_layout()
